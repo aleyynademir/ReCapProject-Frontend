@@ -28,7 +28,6 @@ import { UserComponent } from './components/user/user.component';
     CarFilterComponent,
     RentalComponent,
     UserComponent,
-   
   ],
   imports: [
     BrowserModule,
