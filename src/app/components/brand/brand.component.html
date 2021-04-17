@@ -1,0 +1,17 @@
+<div class="rounded-0 mt-3">
+<ul class="list-group">
+  <li class="list-group-item sidebar-title">BRANDS</li>
+  <li
+      (click)="setAllBrand()"
+      [class]="getAllBrandClass()"
+      routerLink="/cars"
+    >
+      All Brands
+    </li>
+    <li (click)="setCurrentBrand(brand)" 
+    routerLink = "/cars/brands/{{brand.brandId}}"
+    *ngFor="let brand of brands" 
+    [class]="getCurrentBrandClass(brand)" >{{brand.brandName}}</li>
+  </ul>
+</div>
+  

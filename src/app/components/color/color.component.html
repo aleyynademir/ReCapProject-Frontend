@@ -1,0 +1,19 @@
+
+<ul>
+    <div class="list-group rounded-0 mt-4">
+      <li><div class="list-group-item sidebar-title">COLORS</div></li>
+
+
+    <li 
+    (click)="setAllColor()"
+    [class]="getAllColorClass()"
+    routerLink="cars">All Colors</li>
+
+    <li (click)="setCurrentColor(color)" 
+    routerLink = "/cars/colors/{{color.colorId}}"
+    *ngFor="let color of colors" 
+    [class]="getCurrentColorClass(color)" >{{color.colorName}}</li>
+    
+  
+  </div>
+</ul>

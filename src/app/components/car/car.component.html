@@ -1,0 +1,36 @@
+<div class="rounded-0 mt-4">
+    <app-car-filter></app-car-filter>
+    <div class="row px-2">
+      <div *ngFor="let car of cars" class="card mx-2" style="width: 14rem">
+        <img
+          src="https://localhost:44356/{{car.imagePath}}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Id: {{ car.carId }}</li>
+          <li class="list-group-item">Marka: {{ car.brandName }}</li>
+          <li class="list-group-item">Renk: {{ car.colorName }}</li>
+          <li class="list-group-item">Fiyat: {{ car.unitPrice }} TL</li>
+        </ul>
+        <div class="card-body">
+          <button
+            routerLink="/cars/car-detail/{{ car.id }}"
+            type="button"
+            class="btn btn-light"
+          >
+            Detaylar
+          </button>
+          <button
+            routerLink="/cars/rental/{{ car.id }}"
+            type="button"
+            class="btn btn-light"
+          >
+            Kirala
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
