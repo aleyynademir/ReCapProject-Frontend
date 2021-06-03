@@ -1,0 +1,37 @@
+<div class="content">
+  <table class="table">
+      
+      <tr *ngIf="colors">
+          <td>{{colors.colorId}}</td> 
+          <td>{{colors.colorName}}</td>
+      </tr>
+  
+  </table>
+
+  <div class="col-md-12">
+      <div class="card-header">
+          <div class="card-header"><h5 class="title">Color Update</h5></div>
+          <div class="card-body">
+              <form [formGroup]="colorUpdateForm">
+                  <div class="mb-3">
+                      <label for="colorId">Color Id</label>
+                      <div class="form-group">
+                          <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="Color Id"/>
+                      </div>
+                  </div>
+
+                  <div class="mb-3">
+                      <label for="colorName">Color Name</label>
+                      <div class="form-group">
+                          <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="Color Name"/>
+                      </div>
+                  </div>
+              </form>
+
+          </div>
+          <div class="card-footer">
+              <button class="btn btn-warning" (click)="update()">Save Changes</button>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="card">
+        <div>
+            
+            </div>
+      <div class="card-header">Renk Listesi</div>
+      <div class="card-body">
+        <a routerLink="/color/add" class="btn btn-danger">Renk Ekleme</a>
+          <table class="table table-responsive table-bordered table-hover">
+              <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th>İsim</th>
+                      <th>Düzenle</th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of colors">
+                      <td>{{item.colorId}}</td>
+                      <td>{{item.colorName}}</td>
+                      <td><a routerLink="/color/update/{{item.colorId}}" class="btn btn-warning">Düzenle</a></td>
+                      
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+  </div>

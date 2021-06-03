@@ -3,7 +3,7 @@
     <div class="row px-2">
       <div *ngFor="let car of cars" class="card mx-2" style="width: 14rem">
         <img
-          src="https://localhost:44356/{{car.imagePath}}"
+          src="https://localhost:44356/{{car.mainImagePath}}"
           class="card-img-top"
           alt="..."
         />
@@ -17,14 +17,14 @@
         </ul>
         <div class="card-body">
           <button
-            routerLink="/cars/car-detail/{{ car.id }}"
+            routerLink="/cars/car-detail/{{ car.carId }}"
             type="button"
             class="btn btn-light"
           >
             Detaylar
           </button>
           <button
-            routerLink="/cars/rental/{{ car.id }}"
+            routerLink="/cars/rental/{{ car.carId }}"
             type="button"
             class="btn btn-light"
           >

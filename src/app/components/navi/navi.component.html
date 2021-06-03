@@ -8,16 +8,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li clas="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="rentals" >Rents</a>
-        </li>
-        <li><a class="nav-link active" aria-current="page" routerLink="customers" >Customers</a>
+          <a class="nav-link active" aria-current="page" routerLink="rental" >Rents</a>
         </li>
         <li><a class="nav-link active" aria-current="page" routerLink="cars" >Cars</a>
         </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Aleyynademir" target="_blank" >Github</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Settings
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" routerLink="car/list">Cars</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="brand/list">Brands</a></li>
+            <li><a class="dropdown-item" href="#" routerLink="color/list">Colors </a></li>  
+
+            
+            
+          </ul>
         </li>
+       
         
       </ul>
       <form class="d-flex">

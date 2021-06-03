@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/dto/car-detail';
+import { CarDetailPage } from 'src/app/models/dto/car-detail-page';
 import { RentalDetail } from 'src/app/models/dto/rental-detail';
 import { CarImage } from 'src/app/models/entities/car-image';
 import { ResponseModel } from 'src/app/models/response/response-model';
@@ -15,10 +16,11 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class CarDetailComponent implements OnInit {
 
-  carDetails:CarDetail;
+  carDetails:CarDetailPage;
   carImages:CarImage[]=[];
-  rentals:RentalDetail[];
+  rentals:CarDetailPage;
   rentalsById:RentalDetail[];
+  imageUrl ="https://localhost:44356/";
   
   constructor(
     private carDetailService:CarDetailService,
@@ -32,38 +34,42 @@ export class CarDetailComponent implements OnInit {
   ngOnInit(): void {
    
     this.activatedRoute.params.subscribe(params=>{
-      if(params["id"]){
-        this.getById(params["id"])
-        this.getImagesById(params["id"])
+      if(params["carId"]){
+        this.getById(params["carId"])
   }
 })
   }
 
-  getById(id:number){
-    this.carDetailService.getById(id).subscribe(response=>{
-      this.carDetails = response.data[0];
+  getById(carId:number){
+    this.carDetailService.getCarsDetails(carId).subscribe(response=>{
+      this.carDetails = response.data;
+      console.log(this.carDetails.carImages)
     })
   }
 
 
 
-  getImagesById(id:number){
-    this.carImagesByIdService.getCarImages(id).subscribe(response=>{
+  getImagesById(carId:number){
+    this.carImagesByIdService.getCarImages(carId).subscribe(response=>{
       this.carImages=response.data;
       
     })
   }
-
+/*
   getRentals(){
     this.rentalService.getRentals().subscribe(response=>{
       this.rentals = response.data;
     })
   }
-
-  getRentalsById(id:number){
-    this.rentalService.GetById(id).subscribe(response=>{
+*/
+  getRentalsById(rentalId:number){
+    this.rentalService.getRentalById(rentalId).subscribe(response=>{
       this.rentalsById=response.data;
 
     })
+  }
+
+  getImagePath(image:string){
+    return this.imageUrl + image;
   }
   }

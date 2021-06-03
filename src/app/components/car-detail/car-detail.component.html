@@ -1,22 +1,18 @@
-<div class="card rounded-0 mt-4">
+<div class="card rounded-0 mt-4" *ngIf="carDetails != null">
     <div class="card-header text-center rounded-0 mt-4">
       <div class="card-body">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner  d-flex "
              style="height: 50vh; min-height: 20rem; max-height: 30rem">
     
-              <div *ngFor="let image of carImages; index as i; first as firstImage"
               
-              class="carousel-item align-self-center"
-                [ngClass]="{ active: firstImage }"
-              style="height: 100%; width: 100%">
-                 <img
-              src="https://localhost:44356/{{image.imagePath}}"
-              class=""
+              <img
+              *ngFor="let image of carDetails.carImages let i = index"
+              [src]="getImagePath(image.imagePath)"
+              class="img-thumbnail"
               style="height: 100%; width: 100%; object-fit: contain"
-              alt="imageUrl + image.imagePath"
+              [alt]="getImagePath(image.imagePath)"
             />
-              </div>
              </div>
               <button
               class="carousel-control-prev"
@@ -37,7 +33,7 @@
     </div>
         <div> </div>
         <div style="text-align:center"  aria-current="true" *ngIf="carDetails"><h4>
-            {{carDetails.brandName}} 
+            {{carDetails.car.brandName}} 
         </h4></div>
     <table class="table">
        
@@ -54,12 +50,12 @@
             </tr>
         </thead>
         <tr *ngIf="carDetails" >
-            <td>{{carDetails.carId}} </td>
-            <td>{{carDetails.brandName}}</td>
-            <td>{{carDetails.colorName}}</td>
-            <td>{{carDetails.modelYear}}</td>
-            <td>{{carDetails.unitPrice}}</td>
-            <td ><button routerLink="/cars/rental/{{carDetails.carId}}"  type="button" class="btn btn-outline-success">Kirala</button></td>
+            <td>{{carDetails.car.carId}} </td>
+            <td>{{carDetails.car.brandName}}</td>
+            <td>{{carDetails.car.colorName}}</td>
+            <td>{{carDetails.car.modelYear}}</td>
+            <td>{{carDetails.car.unitPrice}} TL</td>
+            <td ><button routerLink="/cars/rental/{{carDetails.car.carId}}"  type="button" class="btn btn-outline-success">Kirala</button></td>
           
             
         </tr>
